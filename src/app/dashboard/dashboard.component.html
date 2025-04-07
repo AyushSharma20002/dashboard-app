@@ -1,0 +1,70 @@
+<div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h3>Main</h3>
+      <!-- Add navigation icons and links here -->
+    </aside>
+  
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="header">
+        <h2>Welcome back, Olivia</h2>
+        <div class="header-actions">
+          <button>Customize</button>
+          <button>Export</button>
+        </div>
+      </header>
+  
+      <!-- Top Cards -->
+      <section class="cards">
+        <div class="chart-card">
+          <!-- You can use Chart.js or ngx-charts here -->
+          <h3>Vendor breakdown</h3>
+          <canvas id="vendorChart"></canvas>
+        </div>
+        <div class="monitoring-card">
+          <h3>Vendors monitored</h3>
+          <p>240</p>
+          <!-- Progress + upgrade button -->
+        </div>
+      </section>
+  
+      <!-- Team Members Table -->
+      <section class="team-table">
+        <h3>Team members</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Status</th>
+              <th>Role</th>
+              <th>Email</th>
+              <th>Progress</th>
+              <th>Teams</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Loop through users -->
+            <tr *ngFor="let member of teamMembers">
+              <td>{{ member.name }}</td>
+              <td><span class="badge">{{ member.status }}</span></td>
+              <td>{{ member.role }}</td>
+              <td>{{ member.email }}</td>
+              <td>
+                <div class="progress-bar">
+                  <div class="fill" [style.width.%]="member.progress"></div>
+                </div>
+              </td>
+              <td>
+                <span class="tag" *ngFor="let team of member.teams">{{ team }}</span>
+              </td>
+              <td>
+                <!-- Action icons -->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
